@@ -1,0 +1,41 @@
+.brands-section {
+  padding: 60px 0 75px;
+  background: $black-0f;
+
+  .section-heading {
+    margin-bottom: 37px;
+    
+    h1 {
+      letter-spacing: 1.8px;
+      padding-bottom: 46px;
+    }
+  }
+}
+
+.brands-holder {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  
+  .brands {
+    padding: 0 15px;
+    margin: 0 auto;
+    text-align: center;
+
+    @include media('>=tablet') {
+      width: 50%;
+    }
+
+    @include media('>=desktop') {
+      width: 25%;
+    }
+  }
+
+  .brand-img {
+    display: block;
+
+    &:hover {
+      background: $gray-43;
+    }
+  }
+}

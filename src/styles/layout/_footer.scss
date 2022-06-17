@@ -1,0 +1,39 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site
+// -----------------------------------------------------------------------------
+.footer {
+  background: $black-0f;
+  padding: 15px 0 13px;
+  
+  .colums {
+    justify-content: center;
+    flex-direction: column-reverse;
+  
+    @include media('>=tablet') {
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .column {
+      max-width: 250px;
+      color: $gray-d0;
+      font-size: 12px;
+      font-weight: 700;
+  
+      @include media('>=tablet') {
+        margin: 0;
+      }
+    }
+    
+    .footer-info {
+      color: $gray-d0;
+  
+      &:hover {
+        color: $red;
+        text-decoration: none;
+      }
+    }
+  }
+}
+

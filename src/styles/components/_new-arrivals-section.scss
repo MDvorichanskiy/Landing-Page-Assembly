@@ -1,0 +1,30 @@
+.new-arrivals-section {
+  padding: 0 0 110px;
+
+  .section-heading {
+    margin-bottom: 80px;
+
+    h1 {
+      padding-bottom: 40px;
+    }
+  }
+}
+
+.new-arrivals-holder {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -11.5px;
+
+  .new-arrivals-colums {
+    padding: 0 11.5px;
+    margin: 0 auto 40px;
+
+    @include media('>=tablet') {
+      width: 50%;
+    }
+
+    @include media('>=desktop') {
+      width: 25%;
+    }
+  }
+}

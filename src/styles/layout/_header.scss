@@ -1,0 +1,118 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site
+// -----------------------------------------------------------------------------
+.resize-active {
+  *,
+  *:before,
+  *:after {
+    transition: none !important;
+  }
+}
+
+.header {
+  // @include animate(color background);
+  // padding: 13px 0;
+}
+
+.header-holder {
+  background: $black;
+  padding: 12px 0;
+}
+
+.header-info {
+  justify-content: space-between;
+  
+  .column {
+    margin: 0;
+  }
+
+  .info-inner {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style: none;
+    margin: 0 -10px;
+    font-size: 12px;
+
+    li {
+      padding: 0 10px;
+    }
+  }
+}
+
+.left.info-inner {
+  margin: 0 -6px;
+
+  li {
+    padding: 0 6px;
+  }
+}
+
+.border {
+  position: relative;
+
+  &:before {
+    content: '';
+    height: 10px;
+    width: 1px;
+    background: $white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+
+.header-inner {
+  background: $black-0f;
+
+  .logo {
+    padding: 28px 0;
+  }
+}
+
+
+.header-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .header-drop {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .header-drop-inner {
+    margin: 0 55px 0 0;
+  }
+
+  .menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-transform: uppercase;
+    margin: 0 -20px;
+    padding: 0;
+    
+    li {
+      padding: 29px 20px;
+      
+      &:hover {
+        background: $black-1f;
+      }
+    }
+  }
+}
+
+.header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -20px;
+  padding: 0;
+  list-style: none;
+  
+  li {
+    padding: 26px 20px;
+    font-size: 18px;
+  }
+}

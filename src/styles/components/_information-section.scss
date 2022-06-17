@@ -1,0 +1,90 @@
+.information-section {
+  padding: 85px 0 41px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.information-holder {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  text-align: center;
+
+  @include media('>=desktop') {
+    text-align: left;
+  }
+
+  .information-column {
+    padding: 0 15px;
+    margin: 0 auto 20px;
+
+    @include media('>=tablet') {
+      width: 50%;
+    }
+
+    @include media('>=desktop') {
+      width: 33.33%;
+    }
+  }
+}
+
+
+.information-inner {
+  @include media('>=desktop') {
+    max-width: 350px;
+  }
+
+  .information-text {
+    line-height: 1.5;
+    margin-bottom: 36px;
+  }
+}
+
+
+.form {
+  .subscribe-row {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .btn-fill {
+    color: $white;
+    letter-spacing: 0.7px;
+    max-width: 140px;
+    padding: 12px 18px;
+  }
+}
+
+.order {
+  order: 0;
+
+  @include media('>=tablet') {
+    order: 1;
+  }
+
+  @include media('>=desktop') {
+    order: 0;
+  }
+}
+
+.category-menu {
+  padding: 10px 0 0;
+
+  .category {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+    padding: 0;
+  }
+  
+  .item {
+    list-style: none;
+    padding: 0 10px;
+    margin: 0 auto 38px;
+
+    @include media('>=desktop') {
+      margin: 0 0 38px;
+    }
+  }
+}  

@@ -1,0 +1,56 @@
+.collection-section {
+  padding: 0 0 125px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  
+  @include media('>=desktop') {
+    flex-direction: row;
+  }
+}
+
+.collection-decor-inner {
+  width: 100%;
+
+  @include media('>=desktop') {
+    width: 46%;
+    display: flex;
+  }
+
+  .collection-decor {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 600px;
+    width: 100%;
+  }
+}
+
+.collection-holder {
+  @include media('>=desktop') {
+    width: 54%;
+    display: flex;
+  }
+
+  .section-heading {
+    h1 {
+      margin-bottom: 42px;
+      padding-bottom: 31px;
+      letter-spacing: 0.2px;
+    }  
+  }
+
+  .collection-info {
+    min-height: 600px;
+  }
+
+  .collection-text {
+    margin-bottom: 66px;
+    line-height: 1.5;
+  }
+
+  .btn {
+    max-width: 312px;
+  }
+}
+
