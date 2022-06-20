@@ -10,8 +10,8 @@
 }
 
 .header {
-  // @include animate(color background);
-  // padding: 13px 0;
+  width: 100% !important;
+  z-index: 99;
 }
 
 .header-holder {
@@ -25,94 +25,244 @@
   .column {
     margin: 0;
   }
-
+  
   .info-inner {
-    display: flex;
-    flex-wrap: wrap;
     padding: 0;
     list-style: none;
-    margin: 0 -10px;
+    margin: 0 -15px;
     font-size: 12px;
+    
+    @include media('>=tablet') {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
     li {
-      padding: 0 10px;
+      padding: 0 15px;
+      
+      @include media('>=tablet') {
+        position: relative;
+        
+        &:before {
+          content: '';
+          height: 10px;
+          width: 1px;
+          background: $white;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          transform: translateY(-50%);
+        }
+  
+        &:first-child:before {
+          content: none;
+        }
+      }
+    }
+
+    span {
+      margin-right: 10px;
     }
   }
 }
 
-.left.info-inner {
-  margin: 0 -6px;
-
+.left-info-inner {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+  margin: 0 -7px;
+  font-size: 12px;
+  
   li {
-    padding: 0 6px;
+    padding: 0 7px;
+    position: relative;
+    
+    &:before {
+      content: '/';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-50%);
+    }
+
+    &:first-child:before {
+      content: none;
+    }
+  }
+
+  span {
+    margin-right: 10px;
   }
 }
 
-.border {
-  position: relative;
+.header-menu {
+  background: $black-0f;
 
-  &:before {
-    content: '';
-    height: 10px;
-    width: 1px;
-    background: $white;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: translateY(-50%);
+  @include media('<tablet') {
+    padding: 10px 0;
   }
+}
+
+.logo {
+  z-index: 90;
 }
 
 .header-inner {
-  background: $black-0f;
-
-  .logo {
-    padding: 28px 0;
-  }
-}
-
-
-.header-menu {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
 
-  .header-drop {
+}
+
+.header-drop {
+  @include media('>=tablet') {
+    width: calc(100% - 110px);
     display: flex;
-    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
-  .header-drop-inner {
-    margin: 0 55px 0 0;
+  @include media('<tablet') {
+    transition: transform 0.3s ease-in-out, visibility 0.3s, opacity 0.3s;
+    position: fixed;
+    top: 125px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: $black;
+    padding: 50px 20px 20px;
+    transform: translateX(100%);
+    visibility: hidden;
+    opacity: 0;
   }
+}
 
-  .menu-list {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    text-transform: uppercase;
-    margin: 0 -20px;
-    padding: 0;
+.header-drop-inner {
+  margin: 0 60px 0 0;
+
+  @include media('<tablet') {
+    margin: 0 auto;
+  }
+}
+
+.menu-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-transform: uppercase;
+  margin: 0 -20px;
+  padding: 0;
+
+  @include media('<tablet') {
+    display: block;
+    margin: 0 0 50px;
+  }
+  
+  a {
+    display: block;
+    padding: 29px 20px;
     
-    li {
-      padding: 29px 20px;
-      
-      &:hover {
-        background: $black-1f;
-      }
+    &:hover {
+      background: $black-1f;
     }
   }
 }
 
 .header-nav {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   margin: 0 -20px;
-  padding: 0;
+  padding: 0 20px;
   list-style: none;
+
+  @include media('<tablet') {
+    justify-content: flex-end;
+  }
   
-  li {
+  a {
+    display: block;
     padding: 26px 20px;
     font-size: 18px;
+
+    &:hover {
+      background: $black-1f;
+    }
   }
 }
+
+.nav-opener {
+  display: none;
+
+  @include media('<tablet') {
+    @include animate(background margin);
+    display: inline-block;
+    position: relative;
+    width: 27px;
+    height: 27px;
+    text-indent: -9999px;
+    z-index: 99;
+
+    &:after,
+    &:before,
+    span {
+      transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, top 0.25s ease-in-out 0.3s;
+      content: '';
+      position: absolute;
+      height: 3px;
+      left: 0;
+      right: 0;
+      background: $white;
+    }
+
+    &:after {
+      top: 0;
+    }
+
+    span {
+      @include animate(opacity background);
+      top: 12px;
+    }
+
+    &:before {
+      top: 23px;
+    }
+  }
+}
+
+.nav-active {
+  @include media('<tablet') {
+    .header-drop {
+      transform: translateX(0);
+      visibility: visible;
+      opacity: 1;
+      top: 125px;
+      overflow: auto;
+      height: calc(100vh - 125px);
+    }
+
+    .nav-opener {
+      span {
+        opacity: 0;
+      }
+
+      &:before,
+      &:after {
+        top: 12px;
+        transition: background 0.3s ease-in-out, top 0.25s, transform 0.3s ease 0.3s;
+      }
+      
+      &:before {
+        transition: background 0.3s ease-in-out, top 0.25s, transform 0.3s ease 0.3s, width 0.3s ease 0.3s;
+        transform: rotateZ(45deg) scale(1.05);
+      }
+      
+      &:after {
+        transform: rotateZ(-45deg) scale(1.05);
+      }
+    }
+  }
+}
+

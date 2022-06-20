@@ -29,6 +29,11 @@ body {
   }
 }
 
+body.nav-active {
+  overflow: hidden;
+}
+
+
 /*
   Basic styles for links
 */
